@@ -1,11 +1,11 @@
 #include "merge_sort.h"
+
 #include <stdint.h>
 
 void SortTwoArray(int16_t* arrIn, uint16_t arrSize, uint16_t arrSize2);
 
 void MergeSort(int16_t* arr, uint16_t arrSize)
 {
-    int16_t arrTemp[128];
     uint16_t i,arrSize2, mergeSize = 1;
     uint16_t lastLoop = 0;
     
@@ -36,8 +36,6 @@ void MergeSort(int16_t* arr, uint16_t arrSize)
             lastLoop = 1;
         }
     }
-    
-    
 }
 
 void SortTwoArray(int16_t* arrIn, uint16_t arrSize, uint16_t arrSize2)
@@ -81,7 +79,7 @@ void SortTwoArray(int16_t* arrIn, uint16_t arrSize, uint16_t arrSize2)
         }
     }
 
-    for (char i = 0; i < (arrSize+arrSize2); i++)
+    for (uint8_t i = 0; i < (arrSize+arrSize2); i++)
     {
         arrIn[i] = arrTemp[i];
     }
