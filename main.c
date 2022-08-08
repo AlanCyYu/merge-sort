@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 
-#include "merge_sort.h"
+#include "merge_sort_array.h"
 
 int main() 
 {
