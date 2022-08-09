@@ -16,14 +16,9 @@ void MergeSortRecursion(int16_t* arr, uint16_t arrSize)
     size1 = arrSize/2;
     size2 = arrSize - size1;
     
-    if (size2 > 1)
-    {
-        MergeSortRecursion(arr, size1);
-        MergeSortRecursion(arr+size1, size2);
-    }
-
+    MergeSortRecursion(arr, size1);
+    MergeSortRecursion(arr+size1, size2);
     SortTwoArray(arr, size1, size2);
-
 }
 
 
@@ -39,33 +34,22 @@ static void SortTwoArray(int16_t* arrIn, uint16_t arrSize1, uint16_t arrSize2)
     {
         if (arr1[i1] < arr2[i2])
         {
-            *p = arr1[i1];
-            i1++;
+            *p++ = arr1[i1++];
         }
         else
         {
-            *p = arr2[i2];
-            i2++;
+            *p++ = arr2[i2++];
         }
-        
-        p++;
     }
 
-    if (i1 == arrSize1)
+    while (i1 < arrSize1)
     {
-        for ( ; i2 < arrSize2; i2++)
-        {
-            *p = arr2[i2];
-            p++;
-        }
+        *p++ = arr1[i1++];
     }
-    else
+
+    while (i2 < arrSize2)
     {
-        for ( ; i1 < arrSize1; i1++)
-        {
-            *p = arr1[i1];
-            p++;
-        }
+        *p++ = arr2[i2++];
     }
 
     for (uint8_t i = 0; i < (arrSize1+arrSize2); i++)
